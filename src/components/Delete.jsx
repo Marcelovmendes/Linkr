@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useContext } from "react";
 import styled from "styled-components";
 import { FaTrash } from "react-icons/fa";
 import Modal from "react-bootstrap/Modal";
@@ -6,10 +6,24 @@ import Button from "react-bootstrap/Button";
 
 export default function DeletePost() {
     const [show, setShow] = useState(false);
+   // const {token} = useContext();
   
     const handleShow = () => setShow(true);
     const handleClose = () => setShow(false);
-  
+  /*const config= {
+    headers:{
+      authorization: `Bearer ${token} `
+    }
+  }*/
+    const deleteRequisition = async() => {
+    try{
+      axios.delete(`http://localhost:8000/api/posts/${id}`)
+
+    }catch(err){
+     console.log(err)
+    }
+
+    }
     return (
       <>
         {show && <Overlay onClick={handleClose} />}
@@ -23,7 +37,7 @@ export default function DeletePost() {
               <StyledButton onClick={handleClose} variant="light">
                 No, go back
               </StyledButton>
-              <StyledButton onClick={handleClose} variant="primary">
+              <StyledButton onClick={deleteRequisition}  variant="primary">
                 Yes, delete it
               </StyledButton>
             </StyledModalFooter>
@@ -71,7 +85,6 @@ const Overlay = styled.div`
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
-
 `;
 
 const StyledModalBody = styled(Modal.Body)`
