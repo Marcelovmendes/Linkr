@@ -17,7 +17,7 @@ export default function DeletePost() {
   }*/
     const deleteRequisition = async() => {
     try{
-      axios.delete(`http://localhost:8000/api/posts/${id}`)
+      // axios.delete(`http://localhost:8000/api/posts/${id}`)
 
     }catch(err){
      console.log(err)
