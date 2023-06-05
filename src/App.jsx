@@ -15,7 +15,7 @@ function App() {
           <Route path='/' element={<SignIn/>}/>
           <Route path='/sign-up' element={<SignUp/>}/>
           <Route path='/delete' element={<DeletePost />} />
-          <Route path = 'timeline' element={<Timeline/>}/>
+          <Route path = '/timeline' element={<Timeline/>}/>
         </Routes>
       </BrowserRouter>
       </UserProvider>
