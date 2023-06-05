@@ -3,12 +3,13 @@ import DeletePost from './components/Delete'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import SignIn from './pages/Auth/SignIn'
 import SignUp from './pages/Auth/SignUp'
-import NavBar from './components/NavBar'
 import Timeline from './pages/Auth/Components/Timeline'
+import UserProvider from './context/userContext'
 function App() {
 
   return (
     <>
+    <UserProvider>
       <BrowserRouter>
         <Routes>
           <Route path='/' element={<SignIn/>}/>
@@ -17,6 +18,7 @@ function App() {
           <Route path = 'timeline' element={<Timeline/>}/>
         </Routes>
       </BrowserRouter>
+      </UserProvider>
     </>
   )
 }

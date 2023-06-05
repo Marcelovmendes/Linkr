@@ -3,18 +3,19 @@ import styled from "styled-components";
 import { FaTrash } from "react-icons/fa";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
-
+import { UserContext } from "../context/userContext";
 export default function DeletePost() {
+
     const [show, setShow] = useState(false);
-   // const {token} = useContext();
+    const {token} = useContext(UserContext);
   
     const handleShow = () => setShow(true);
     const handleClose = () => setShow(false);
-  /*const config= {
+  const config= {
     headers:{
       authorization: `Bearer ${token} `
     }
-  }*/
+  }
     const deleteRequisition = async() => {
     try{
       // axios.delete(`http://localhost:8000/api/posts/${id}`)
